@@ -97,6 +97,10 @@ header{
 	width: 160px;
 }
 
+.header-dropdown:focus {
+	outline: none;
+}
+
 .header-dropdown option {
 	padding: 10px;
 }

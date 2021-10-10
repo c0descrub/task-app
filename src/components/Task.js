@@ -13,11 +13,13 @@ const Task = ({ tasks, task, completeTask, deleteTask, setTasks, onAdd }) => {
     const dateAdded = new Date().toLocaleDateString('en-US', {year: "2-digit", month: "2-digit", day: "2-digit"})
 
     return (
-        <div> 
+        <div className="task-container"> 
             <input checked={task.completed} type="checkbox" onClick={markCompleted}/>
-            <h3>{task.text}</h3>
-            <p>{dateAdded}</p>
-            <p>{formattedDate}</p>
+            <div className="task-text-date">
+                <h3>{task.text}</h3>
+                <p>{formattedDate}</p>
+            </div>
+            {/* <p>{dateAdded}</p> */}
             <VscChromeClose style ={{cursor: 'pointer'}} onClick={() => deleteTask(task.id)}/>
         </div>
     )

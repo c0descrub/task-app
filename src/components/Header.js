@@ -1,4 +1,4 @@
-const Header = ({setStatus}) => {
+const Header = ({setStatus, TaskCount}) => {
 
     const statusHandler = (e) => {
         setStatus(e.target.value)
@@ -6,10 +6,10 @@ const Header = ({setStatus}) => {
 
     return (
         <header>
-            <h1>
-                My Tasks
-            </h1>
-            <select onChange={statusHandler} type="dropdown">
+            <h1 className="header-heading">My Tasks</h1>
+            <TaskCount/>
+            <p className="header-p">Filter by:</p>
+            <select className="header-dropdown" onChange={statusHandler} type="dropdown">
                 <option value="all">All</option>
                 <option value="complete">Complete</option>
                 <option value="incomplete">Not completed</option>

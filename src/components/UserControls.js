@@ -31,7 +31,8 @@ const UserControls = ({ onAdd, task }) => {
     return (
             <form onSubmit={onSubmit}>
                 <input 
-                type="text" 
+                type="text"
+                className="user-controls__text" 
                 placeholder="Add a new task..." 
                 value={text}
                 onChange={(e) => setText(e.target.value)}
@@ -39,10 +40,11 @@ const UserControls = ({ onAdd, task }) => {
 
                 <input 
                 type="date"
+                className="user-controls__date"
                 value={date}
                 onChange={(e) => setDate(e.target.value)}
                 ></input>
-                <input type="submit" value="Submit"></input>
+                <button className="user-controls__button" type="submit">+</button>
             </form>
     )
 }

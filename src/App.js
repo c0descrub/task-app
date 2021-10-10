@@ -2,6 +2,7 @@ import {useState, useEffect} from 'react'
 import UserControls from "./components/UserControls";
 import Header from "./components/Header";
 import Tasks from './components/Tasks';
+import Task from './components/Task';
 
 
 function App() {
@@ -9,8 +10,6 @@ function App() {
   const [tasks, setTasks] = useState([])
   const [status, setStatus] = useState("all")
   const [filteredTasks, setFilteredTasks] = useState ([])
-
-
 
 //Functions
 
@@ -39,7 +38,7 @@ const filterHandler = () => {
     let counter = 0;
     for ( let i = 0; i < tasks.length; i++ ) {
       if(tasks[i].completed === true) counter++;
-    } return(<p>{counter} of {tasks.length} {tasks.length === 1 ? 'task' : 'tasks'} complete</p>)
+    } return(<p class="task-count">{counter} of {tasks.length} {tasks.length === 1 ? 'task' : 'tasks'} complete</p>)
     
   }
     
@@ -80,9 +79,9 @@ useEffect(() => {
 
   return (
     <div className="container">
-      <Header setStatus={setStatus}/>
-      <TaskCount/>
-      {tasks.length > 0 ? <Tasks setTasks={setTasks} tasks={tasks} deleteTask={deleteTask} completeTask={completeTask} filteredTasks={filteredTasks}/> : 'You\'re all done!'}
+    <button>Dark</button>
+      <Header setStatus={setStatus} TaskCount={TaskCount}/>
+      {tasks.length > 0 ? <Tasks setTasks={setTasks} tasks={tasks} deleteTask={deleteTask} completeTask={completeTask} filteredTasks={filteredTasks}/> :<div class="no-tasks">You're all done!</div>}
       <UserControls onAdd={addTask} setTasks={setTasks}/>
     </div>
   );

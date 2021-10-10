@@ -36,7 +36,9 @@ const UserControls = ({ onAdd, task }) => {
                 placeholder="Add a new task..." 
                 value={text}
                 onChange={(e) => setText(e.target.value)}
-                ></input>
+                >
+
+                </input>
 
                 <input 
                 type="date"
@@ -44,7 +46,8 @@ const UserControls = ({ onAdd, task }) => {
                 value={date}
                 onChange={(e) => setDate(e.target.value)}
                 ></input>
-                <button className="user-controls__button" type="submit">+</button>
+                <hr/>
+                <button className="user-controls__button" type="submit">Add Task</button>
             </form>
     )
 }

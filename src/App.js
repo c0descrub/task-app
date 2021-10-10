@@ -50,15 +50,16 @@ const filterHandler = () => {
 
 // Complete task
  const completeTask = (id) => {
-
-  setTasks(tasks.map(task => {
-    if(task.id === id){
-      return{...task, completed: !task.completed}
+   setTasks(tasks.map(task => {
+     if(task.id === id){
+       return{...task, completed: !task.completed}
+      }  
+      return task
     }
-    return task
-  }))
-
+   )
+  )
 }
+
 
 // useEffect stuff
 useEffect(() => {

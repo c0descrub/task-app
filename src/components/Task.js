@@ -7,20 +7,17 @@ import {VscChromeClose} from 'react-icons/vsc'
 const Task = ({ tasks, task, completeTask, deleteTask, setTasks, onAdd }) => {
 
     const markCompleted = () => completeTask(task.id)
-    
     const date = task.date
-    const formattedDate = new Date(date).toLocaleDateString('en-US', {weekday: "short", month: "short", day: "numeric"})
-    const dateAdded = new Date().toLocaleDateString('en-US', {year: "2-digit", month: "2-digit", day: "2-digit"})
+    const formattedDate = new Date(date).toLocaleDateString('en-US', {weekday: "short", month: "short", day: "numeric"})    
 
     return (
-        <div className="task-container"> 
-            <input checked={task.completed} type="checkbox" onClick={markCompleted}/>
+        <div className={`task-container ${task.completed ? "completed" : ""}`} id="task-container"> 
+            <input className="task-container-checkbox" checked={task.completed} type="checkbox" onClick={markCompleted} style={{cursor: 'pointer'}}/>
             <div className="task-text-date">
-                <h3>{task.text}</h3>
-                <p>{formattedDate}</p>
+                <h3 className="task-text">{task.text}</h3>
+                <p className="task-date">{formattedDate}</p>
             </div>
-            {/* <p>{dateAdded}</p> */}
-            <VscChromeClose style ={{cursor: 'pointer'}} onClick={() => deleteTask(task.id)}/>
+            <VscChromeClose id="delete-button" className="hidden task-delete-button" style ={{cursor: 'pointer'}} onClick={() => deleteTask(task.id)}/>
         </div>
     )
 }

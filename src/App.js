@@ -2,7 +2,7 @@ import {useState, useEffect} from 'react'
 import UserControls from "./components/UserControls";
 import Header from "./components/Header";
 import Tasks from './components/Tasks';
-import Task from './components/Task';
+import Toggle from './components/Toggle'
 
 
 function App() {
@@ -79,12 +79,15 @@ useEffect(() => {
 
 
   return (
+    
+  <>
+    <Toggle/>
     <div className="container">
-    <button>Dark</button>
       <Header setStatus={setStatus} TaskCount={TaskCount}/>
       {tasks.length > 0 ? <Tasks setTasks={setTasks} tasks={tasks} deleteTask={deleteTask} completeTask={completeTask} filteredTasks={filteredTasks}/> :<div class="no-tasks">You're all done!</div>}
       <UserControls onAdd={addTask} setTasks={setTasks}/>
     </div>
+  </>
   );
 }
 

@@ -1,23 +1,47 @@
+import {useState, useEffect} from 'react'
+
 const Toggle = () => {
 
-    const toggleTheme = () => {
+    const [theme, setTheme] = useState('Light')
+
+    const toggleTheme = (e) => {
+
+        const body = document.body
         const slider = document.getElementById('slider')
-        if(slider.classList.contains('light')){
+
+        if(theme === 'Light'){
             slider.classList.remove('light')
             slider.classList.add('dark')
             slider.innerHTML = "Dark"
-            document.body.classList.add('dark')
-        } else if(slider.classList.contains('dark')){
+            body.classList.add('dark')
+            localStorage.setItem("theme",'Dark')
+            setTheme('Dark')
+            
+        } else if(theme === 'Dark'){
             slider.classList.remove('dark')
             slider.classList.add('light')
-            document.body.classList.remove('dark')
+            body.classList.remove('dark')
             slider.innerHTML = "Light"
+            localStorage.setItem("theme",'Light')
+            setTheme('Light')
         } 
 
     }
+
+    useEffect(() => {
+        const savedTheme = localStorage.getItem('theme', theme)
+        if(savedTheme) {
+          setTheme(theme)
+        }
+      }, [theme, setTheme])
+
+    useEffect(() => {
+        localStorage.setItem('theme' , theme)
+      }, [theme, setTheme])
+
     return (
         <label className="switch">
-            <input type="checkbox" onClick={toggleTheme}/>
+            <input type="checkbox" onClick={(e) => toggleTheme(e)}/>
             <span id="slider" className="slider round light">Light</span>
         </label>
     )

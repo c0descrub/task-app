@@ -1,48 +1,49 @@
-import {useState, useEffect} from 'react'
-
 const Toggle = () => {
 
-    const [theme, setTheme] = useState('Light')
+    const body = document.body
+    const slider = document.getElementById('slider')
+    const lightTheme = "light"
+    const darkTheme = "dark"
+    let theme;
 
-    const toggleTheme = (e) => {
+    if(localStorage) {
+        theme = localStorage.getItem("theme")
+    }
 
-        const body = document.body
-        const slider = document.getElementById('slider')
+    if (theme === lightTheme || theme === darkTheme) {
+        body.classList.add(theme)
 
-        if(theme === 'Light'){
-            slider.classList.remove('light')
-            slider.classList.add('dark')
-            slider.innerHTML = "Dark"
-            body.classList.add('dark')
-            localStorage.setItem("theme",'Dark')
-            setTheme('Dark')
-            
-        } else if(theme === 'Dark'){
-            slider.classList.remove('dark')
-            slider.classList.add('light')
-            body.classList.remove('dark')
-            slider.innerHTML = "Light"
-            localStorage.setItem("theme",'Light')
-            setTheme('Light')
-        } 
+    } else {
+        body.classList.add(lightTheme)
+
 
     }
 
-    useEffect(() => {
-        const savedTheme = localStorage.getItem('theme', theme)
-        if(savedTheme) {
-          setTheme(theme)
-        }
-      }, [theme, setTheme])
+    const switchTheme = (e) => {
+        if(theme === darkTheme){
+            body.classList.replace(darkTheme, lightTheme)
+            slider.classList.replace(darkTheme, lightTheme)
+            slider.innerHTML = "Light"
+            localStorage.setItem('theme', "light")
+            theme = lightTheme
 
-    useEffect(() => {
-        localStorage.setItem('theme' , theme)
-      }, [theme, setTheme])
+        } else {
+            body.classList.replace(lightTheme, darkTheme)
+            slider.classList.replace(lightTheme, darkTheme)
+            slider.innerHTML = "Dark"
+            localStorage.setItem('theme', "dark")
+            theme = darkTheme
+            
+        }
+    }
 
     return (
         <label className="switch">
-            <input type="checkbox" onClick={(e) => toggleTheme(e)}/>
-            <span id="slider" className="slider round light">Light</span>
+            <input 
+            type="checkbox"
+            onClick = {(e) => switchTheme(e)}
+            />
+            <span id="slider" className={`slider round ${theme === lightTheme ? "light" : "dark"}`}> Light </span>
         </label>
     )
 }

@@ -268,13 +268,7 @@ hr {
 	transition: .4s;
 }
 
-input:checked + .slider {
-	background-color: #2196F3;
-}
 
-input:focus + .slider {
-	box-shadow: 0 0 1px #2196F3;
-}
 
 input:checked + .slider:before {
 	-webkit-transform: translateX(50px);
@@ -290,23 +284,26 @@ input:checked + .slider:before {
 	border-radius: 50%;
 }
 
-.slider.round.light {
+.slider.round.light, .slider.round.dark {
 	padding-top: 4px;
-	padding-left: 30px;
 	font-size: 13px;
 	color: white;
+
+}
+
+.slider.round.light {
+	padding-left: 30px;
 }
 
 .slider.round.dark {
-	padding-top: 4px;
 	padding-left: 20px;
-	font-size: 13px;
-	color: white;
+
 }
 
 input:checked + .slider.dark {
 	background-color: #041c31;
 	box-shadow: 0 0px 5px rgb(209, 219, 153);
+
 }
 
 input:focus + .slider.dark {

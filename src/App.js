@@ -38,7 +38,7 @@ const filterHandler = () => {
     let counter = 0;
     for ( let i = 0; i < tasks.length; i++ ) {
       if(tasks[i].completed === true) counter++;
-    } return(<p class="task-count">{counter} of {tasks.length} {tasks.length === 1 ? 'task' : 'tasks'} complete</p>)
+    } return(<p className="task-count">{counter} of {tasks.length} {tasks.length === 1 ? 'task' : 'tasks'} complete</p>)
     
   }
     
@@ -60,11 +60,10 @@ const filterHandler = () => {
   )
 }
 
-
 // useEffect stuff
 useEffect(() => {
   filterHandler()
-},[tasks,status])
+})
 
 useEffect(() => {
   const localData = localStorage.getItem('Task List')
@@ -85,7 +84,7 @@ useEffect(() => {
     <Toggle/>
     <div className="container">
       <Header setStatus={setStatus} TaskCount={TaskCount}/>
-      {tasks.length > 0 ? <Tasks setTasks={setTasks} tasks={tasks} deleteTask={deleteTask} completeTask={completeTask} filteredTasks={filteredTasks}/> :<div class="no-tasks">You're all done!</div>}
+      {tasks.length > 0 ? <Tasks setTasks={setTasks} tasks={tasks} deleteTask={deleteTask} completeTask={completeTask} filteredTasks={filteredTasks}/> :<div className="no-tasks">You're all done!</div>}
       <UserControls onAdd={addTask} setTasks={setTasks}/>
     </div>
   </>

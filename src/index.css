@@ -231,84 +231,6 @@ hr {
 	opacity: 0;
 }
 
-.switch {
-	position: relative;
-	margin-top: 10px;
-	margin-left: 10px;
-	display: inline-block;
-	width: 75px;
-	height: 22px;
-}
-
-.switch input {
-	opacity: 0;
-	width: 0;
-	height: 0;
-}
-.slider {
-	position: absolute;
-	cursor: pointer;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	background-color: rgb(117, 117, 117);
-	-webkit-transition: .4s;
-	transition: .4s;
-}
-.slider:before {
-	position: absolute;
-	content: "";
-	height: 16px;
-	width: 16px;
-	left: 5px;
-	bottom: 3px;
-	background-color: white;
-	-webkit-transition: .4s;
-	transition: .4s;
-}
-
-input:checked + .slider:before {
-	-webkit-transform: translateX(50px);
-	-ms-transform: translateX(50px);
-	transform: translateX(50px);
-}
-
-.slider.round {
-	border-radius: 34px;
-}
-  
-.slider.round:before {
-	border-radius: 50%;
-}
-
-.slider.round.light, .slider.round.dark {
-	padding-top: 4px;
-	font-size: 13px;
-	color: white;
-
-}
-
-.slider.round.light {
-	padding-left: 30px;
-}
-
-.slider.round.dark {
-	padding-left: 20px;
-
-}
-
-input:checked + .slider.dark {
-	background-color: #041c31;
-	box-shadow: 0 0px 5px rgb(209, 219, 153);
-
-}
-
-input:focus + .slider.dark {
-	box-shadow: 0 0 1px #041c31;
-	box-shadow: 0 0px 5px rgb(209, 219, 153);
-}
-
 /* darkmode */
 
 body.dark {
@@ -346,4 +268,8 @@ body.dark .user-controls__date {
 
 body.dark ::-webkit-calendar-picker-indicator {
     filter: invert(1);
+}
+
+.clicked {
+	padding: 30px;
 }

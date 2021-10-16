@@ -268,8 +268,6 @@ hr {
 	transition: .4s;
 }
 
-
-
 input:checked + .slider:before {
 	-webkit-transform: translateX(50px);
 	-ms-transform: translateX(50px);

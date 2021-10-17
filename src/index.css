@@ -116,7 +116,6 @@ header{
 
 .task-container:hover {
 	background-color:rgb(241, 241, 241);
-	transition: ease all 0.3s;
 
 }
 
@@ -206,7 +205,6 @@ hr {
 
 .user-controls__button:hover {
 	background-color:rgb(153, 77, 49);
-	transition: ease all .3s
 }
 
 
@@ -219,14 +217,12 @@ hr {
 
 .completed, .completed:hover {
 	background-color: rgb(241, 241, 241);
-	transition: ease all 0.3s
 }
 
 
 .completed .task-text {
 	color: coral;
 	text-decoration: line-through;
-	transition: ease all 0.3s;
 }
 
 .completed .task-container-checkbox {

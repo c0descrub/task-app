@@ -31,7 +31,7 @@ const Toggle = () => {
             <ToggleSlider 
             active={theme === "dark" ? true : false}
             barWidth={60} 
-            barBackgroundColor={'#0C0B22'}
+            barBackgroundColor={'#1A1818'}
             barBackgroundColorActive={'#dedede'}
             transitionDuration={'400ms'}
             draggable={false}

@@ -1,10 +1,9 @@
 
 import React from 'react'
 import {VscChromeClose} from 'react-icons/vsc'
-// import {useState} from 'react'
 
 
-const Task = ({ tasks, task, completeTask, deleteTask, setTasks, onAdd }) => {
+const Task = ({ task, completeTask, deleteTask }) => {
 
     const markCompleted = () => completeTask(task.id)
     const date = task.date

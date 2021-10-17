@@ -1,8 +1,6 @@
 import { useState } from "react"
-import Task from "./Task"
-//import { DateTimePickerComponent } from "@syncfusion/ej2-react-calendars"
 
-const UserControls = ({ onAdd, task }) => {
+const UserControls = ({ onAdd }) => {
 
     const[text, setText] = useState('')
     const[date, setDate] = useState('')

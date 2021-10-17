@@ -1,49 +1,43 @@
-import {useState, useEffect} from 'react'
+import { ToggleSlider }  from "react-toggle-slider";
 
 const Toggle = () => {
 
-    const [theme, setTheme] = useState('Light')
+    const body = document.body
+    const darkMode = "dark"
+    const lightMode = "light"
+    let theme
 
-    const toggleTheme = (e) => {
+    theme = localStorage.getItem('Theme')
 
-        const body = document.body
-        const slider = document.getElementById('slider')
-
-        if(theme === 'Light'){
-            slider.classList.remove('light')
-            slider.classList.add('dark')
-            slider.innerHTML = "Dark"
-            body.classList.add('dark')
-            localStorage.setItem("theme",'Dark')
-            setTheme('Dark')
-            
-        } else if(theme === 'Dark'){
-            slider.classList.remove('dark')
-            slider.classList.add('light')
-            body.classList.remove('dark')
-            slider.innerHTML = "Light"
-            localStorage.setItem("theme",'Light')
-            setTheme('Light')
-        } 
-
+    if (theme === lightMode || theme === darkMode){
+        body.classList.add(theme)
+    } else {
+        body.classList.replace(darkMode , lightMode)
     }
 
-    useEffect(() => {
-        const savedTheme = localStorage.getItem('theme', theme)
-        if(savedTheme) {
-          setTheme(theme)
+    const toggleTheme = () => {
+        if(body.classList.contains('dark')){
+            body.classList.remove('dark')
+            localStorage.setItem('Theme', "light")
+            theme = lightMode
+        } else {
+            body.classList.add('dark')
+            localStorage.setItem('Theme', "dark")
+            theme = darkMode
         }
-      }, [theme, setTheme])
-
-    useEffect(() => {
-        localStorage.setItem('theme' , theme)
-      }, [theme, setTheme])
-
+    }
     return (
-        <label className="switch">
-            <input type="checkbox" onClick={(e) => toggleTheme(e)}/>
-            <span id="slider" className="slider round light">Light</span>
-        </label>
+        <div className = "toggle-container">
+            <ToggleSlider 
+            active={theme === "dark" ? true : false}
+            barWidth={60} 
+            barBackgroundColor={'#0C0B22'}
+            barBackgroundColorActive={'#dedede'}
+            transitionDuration={'400ms'}
+            draggable={false}
+            onToggle={toggleTheme}
+            />
+        </div>
     )
 }
 

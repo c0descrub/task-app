@@ -2,13 +2,18 @@ import { useState } from "react"
 
 const UserControls = ({ onAdd }) => {
 
-    const[text, setText] = useState('')
-    const[date, setDate] = useState('')
+    const [text, setText] = useState('')
+    
 
     const reset = () => {
         setText("")
-        setDate("")
+        setDate(today)
     }
+
+    const currentDate = new Date()
+    const today = currentDate.toISOString().substr(0, 10)
+    
+    const [date, setDate] = useState(today)
 
     const onSubmit = (e) => {
         e.preventDefault()

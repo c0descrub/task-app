@@ -64,7 +64,7 @@ const filterHandler = () => {
 // useEffect stuff
 useEffect(() => {
   filterHandler()
-},[tasks,status])
+})
 
 useEffect(() => {
   const localData = localStorage.getItem('Task List')

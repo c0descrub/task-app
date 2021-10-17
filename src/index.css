@@ -315,7 +315,7 @@ body.dark {
 	background-color:rgb(12, 11, 34);
 }
 
-body.dark h1, h3 {
+body.dark h1, body.dark h3 {
 	color: white;
 }
 

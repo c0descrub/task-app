@@ -50,6 +50,7 @@ body {
 	background-color: rgb(235, 235, 235) ;
 	color: rgb(149, 149, 149);
 	transition: all ease 1s;
+	overflow-x: hidden;
 	
 }
 
